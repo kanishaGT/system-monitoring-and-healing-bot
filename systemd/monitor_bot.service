@@ -1,0 +1,15 @@
+[Unit]
+Description=Monitoring Bot (Python)
+After=graphical-session.target
+
+[Service]
+Type=simple
+ExecStart=/home/kanisha/psutil-env/bin/python /home/kanisha/system_bot/monitor_bot.py
+Restart=always
+RestartSec=5
+Environment=DISPLAY=:0
+Environment=XDG_RUNTIME_DIR=/run/user/1000
+
+[Install]
+WantedBy=default.target
+
