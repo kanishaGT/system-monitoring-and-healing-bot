@@ -1,14 +1,22 @@
 [Unit]
-Description=Monitoring Bot (Python)
-After=graphical-session.target
+Description=AI System Monitor & Healing Bot
+After=default.target
 
 [Service]
 Type=simple
-ExecStart=/home/kanisha/psutil-env/bin/python /home/kanisha/system_bot/monitor_bot.py
-Restart=always
+
+# IMPORTANT: Set project root
+WorkingDirectory=/home/kanisha/system-monitoring-and-healing-bot
+
+# Use VENV python ⭐⭐⭐
+ExecStart=/home/kanisha/psutil-env/bin/python /home/kanisha/system-monitoring-and-healing-bot/src/monitor_bot.py
+
+Restart=on-failure
 RestartSec=5
+
+Environment=PYTHONUNBUFFERED=1
 Environment=DISPLAY=:0
-Environment=XDG_RUNTIME_DIR=/run/user/1000
+Environment=XAUTHORITY=/home/kanisha/.Xauthority
 
 [Install]
 WantedBy=default.target
