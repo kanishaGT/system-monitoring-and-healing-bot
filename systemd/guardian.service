@@ -1,0 +1,19 @@
+[Unit]
+Description=AI System Monitor & Healing Bot
+After=default.target
+
+[Service]
+Type=simple
+User=kanisha
+WorkingDirectory=/home/kanisha/system-monitoring-and-healing-bot/src
+ExecStart=/home/kanisha/psutil-env/bin/python main.py
+
+Restart=always
+RestartSec=5
+Environment=PYTHONUNBUFFERED=1
+Environment=DISPLAY=:0
+Environment=XAUTHORITY=/home/kanisha/.Xauthority
+
+[Install]
+WantedBy=default.target
+
